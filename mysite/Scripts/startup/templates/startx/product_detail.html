@@ -1,0 +1,31 @@
+{% extends 'startx/base.html' %}
+
+{% block content %}
+  <h2>{{ instance.title }}</h2>
+  <h2>{{ instance.description }}</h2>
+  <h2>{{ instance.category }}</h2>
+  <h2>{{ instance.patient_number }}</h2>
+  <h2>{{ instance.timestamp }}</h2>
+  {% if instance.image %}
+    <img src="{{ instance.image.url }}" class="img-responsive" height="50" width="100"><br>
+  {% endif %}
+  <a href="{% url 'dashboard' instance.id %}">DashBoard</a>
+
+  <h6>{{ instance.likes.count }} Likes</h6>
+  <form action="{% url 'likes' instance.id %}" method="post">{% csrf_token %}
+    {% if user in instance.likes.all %}
+    <input type="submit" Value="Disike">
+    {% else %}
+    <input type="submit" Value="Like">
+    {% endif %}
+
+  </form>
+  <form action="{% url 'product_detail' instance.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Comment">
+  </form>
+  {% for comm in comments %}
+    {{ comm.text }}<br><br>
+  {% endfor %}
+{% endblock %}

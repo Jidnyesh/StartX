@@ -1,0 +1,935 @@
+{% extends 'startx/base_navigation_bar.html' %}
+{% load static %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+
+{% block style %}
+<style>
+
+        .row{
+            height: 100%;
+            margin-right: 0px;
+        }
+
+        /*side wla nevigation bar*/
+
+        #side_nav_bar{
+            /*background: linear-gradient(to right, #333333, #dd1818);*/
+            background:linear-gradient(to right,#43cbff,#9708cc);
+
+            min-height: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            position: fixed;
+            padding-top: 55px;
+            padding-left:0px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.45);
+
+        }
+        /*side navbar ke tabs*/
+        #li_one{
+            padding-top: 3px !important;
+            padding-bottom: 3px !important;
+            height: 35px;
+            margin-top: 20px;
+            width: 100% !important;
+            padding-left: 20px;
+            color: white;
+        }
+        .col-xs-2{
+            padding:0px !important;
+        }
+
+        i{
+            padding-right: 10px;
+        }
+
+        /*navbar top ka pura area*/
+        .well_one{
+            padding-top: 35px;
+            padding-bottom: 1px;
+            background-image: url('imn.jpg');
+            background-position:center;
+            background-attachment: fixed;
+            background-size: cover;
+            padding-left: 10px;
+            padding-right: 10px;
+            top: 0 !important;
+            left: 0 !important;
+        }
+        .active{
+            /*background:linear-gradient(to left,rgb(255, 187, 0),rgb(255, 94, 0),rgb(247, 19, 57)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            border-bottom:2px solid orangered;
+            font-weight:700;*/
+            border-left: 3px solid rgb(247, 19, 57);
+            color: white;
+            background:rgba(255, 255, 255, 0.25);
+            display: block;
+        }
+        /*right wle box*/
+        #right_well{
+            background: white;
+            box-shadow: -1px 3px 18px 3px rgba(0, 0, 0, 0.5);
+            margin-top: 25px;
+            width: 100%;
+            height: auto;
+            text-align: left !important;
+        }
+        /*pehla graph beech me jo hai*/
+        #graph_one{
+            box-shadow: -1px 3px 18px 3px rgba(0, 0, 0, 0.5);
+            padding-left:10px;
+        }
+        .tab_ele{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+
+        #active_top_tab{
+            border-bottom: 2px solid rgb(247, 19, 57);
+            color: white !important;
+        }
+
+
+          #loader-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1000;
+          }
+          #loader {
+                z-index: 1001;
+                border-radius: 50%;
+                display: block;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                width: 150px;
+                height: 150px;
+                margin: -75px 0 0 -75px;
+                border: 3px solid transparent;
+                border-top-color: #3498db;
+                z-index: 1500;
+                -webkit-animation: spin 2s linear infinite;
+                animation: spin 2s linear infinite;
+
+          }
+          h1 {
+            color: #EEEEEE;
+          }
+          #loader:before {
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 3px solid transparent;
+            border-top-color: #e74c3c;
+            -webkit-animation: spin 3s linear infinite;
+            animation: spin 3s linear infinite;
+          }
+          #loader:after {
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid transparent;
+            border-top-color: #f9c922;
+            -webkit-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+          }
+          @-webkit-keyframes spin {
+              0%   {
+                  -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                  -ms-transform: rotate(0deg);  /* IE 9 */
+                  transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+              }
+              100% {
+                  -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                  -ms-transform: rotate(360deg);  /* IE 9 */
+                  transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+              }
+            }
+            @keyframes spin {
+                0%   {
+                    -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                    -ms-transform: rotate(0deg);  /* IE 9 */
+                    transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+                }
+                100% {
+                    -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+                    -ms-transform: rotate(360deg);  /* IE 9 */
+                    transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+                }
+              }
+              #loader-wrapper .loader-section {
+                  position: fixed;
+                  top: 0;
+                  width: 51%;
+                  height: 100%;
+                  background: #222222;
+                  z-index: 1000;
+              }
+
+              #loader-wrapper .loader-section.section-left {
+                left: 0;
+              }
+
+              #loader-wrapper .loader-section.section-right {
+                right: 0;
+              }
+              .loaded #loader-wrapper .loader-section.section-left {
+                  -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+                  -ms-transform: translateX(-100%);  /* IE 9 */
+                  transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+              }
+
+              .loaded #loader-wrapper .loader-section.section-right {
+                    -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+                    -ms-transform: translateX(100%);  /* IE 9 */
+                    transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+              }
+              .loaded #loader {
+                opacity: 0;
+                -webkit-transition: all 0.3s ease-out;
+                transition: all 0.3s ease-out;
+              }
+              .loaded #loader-wrapper {
+                visibility: hidden;
+                -webkit-transform: translateY(-100%);
+              -ms-transform: translateY(-100%);
+                  transform: translateY(-100%);
+
+                  -webkit-transition: all 0.3s 1s ease-out;
+                  transition: all 0.3s 1s ease-out;
+              }
+              .loaded #loader-wrapper .loader-section.section-right,
+              .loaded #loader-wrapper .loader-section.section-left {
+
+
+                -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+              }
+
+#demo-wrapper {
+    width: 950px;
+    margin: 0 auto;
+    height: 560px;
+
+}
+#mapBox {
+    width: 85%;
+    float: left;
+}
+#container {
+    height: 500px;
+}
+#sideBox {
+    float: right;
+    width: 16%;
+    margin: 100px 1% 0 1%;
+    padding-left: 1%;
+    border-left: 1px solid silver;
+    display: none;
+}
+#infoBox {
+    margin-top: 100px;
+}
+.or-view-as {
+    margin: 0.5em 0;
+}
+#up {
+    height: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+#up a {
+    cursor: pointer;
+    padding-left: 40px;
+}
+.selector {
+    height: 40px;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+.selector .prev-next {
+    position: absolute;
+    padding: 0 10px;
+    font-size: 30px;
+    line-height: 20px;
+    background: white;
+    font-weight: bold;
+    color: #999;
+    top: -2px;
+    display: none;
+    border: none;
+}
+.selector .custom-combobox {
+    display: block;
+    position: absolute;
+    left: 40px;
+    right: 110px;
+}
+.selector .custom-combobox .custom-combobox-input {
+    position: absolute;
+    font-size: 14px;
+    color: silver;
+    border-radius: 0;
+    height: 24px;
+    display: block;
+    background: url(https://www.highcharts.com/samples/graphics/search.png) 5px 5px no-repeat white;
+    padding: 1px 5px 1px 30px;
+    width: 100%;
+}
+.selector .custom-combobox .ui-autocomplete-input:focus {
+    color: black;
+}
+.selector .custom-combobox .ui-autocomplete-input.valid {
+    color: black;
+}
+.selector .custom-combobox-toggle {
+    position: absolute;
+    display: block;
+    right: -78px;
+    border-radius: 0;
+}
+
+.selector #btn-next-map {
+    right: -12px;
+}
+.ui-autocomplete {
+    max-height: 500px;
+    overflow: auto;
+}
+.ui-autocomplete .option-header {
+    font-style: italic;
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: gray;
+}
+
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+.ui-button-icon-only .ui-button-text {
+    height: 26px;
+    padding: 0 !important;
+    background: white;
+}
+#infoBox .button {
+    border: none;
+    border-radius: 3px;
+    background: #a4edba;
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    margin: 0 3px;
+    line-height: 30px;
+}
+
+@media (max-width: 768px) {
+    #demo-wrapper {
+        width: auto;
+        height: auto;
+    }
+    #mapBox {
+        width: auto;
+        float: none;
+    }
+    #container {
+        height: 310px;
+    }
+    #sideBox {
+        float: none;
+        width: auto;
+        margin-top: 0;
+        border-left: none;
+        border-top: 1px solid silver;
+    }
+}
+
+
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+.amcharts-export-menu-top-right {
+  top: 10px;
+  right: 0;
+}
+
+
+
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/mapdata/index.js?1"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+<script src="https://www.highcharts.com/samples/maps/demo/all-maps/jquery.combobox.js"></script>
+
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+  </div>
+  <script>
+    $(document).ready(function() {
+
+      setTimeout(function(){
+        $('body').addClass('loaded');
+        $('h1').css('color','#222222');
+      }, 3000);
+
+    });
+  </script>
+
+
+
+  <div class="row" style="margin-top:55px;padding-left:20px;">
+    <div class="col-sm-2 " id="side_nav_bar" style="padding-right:0px;">
+        <div class="well" style="background:transparent; border:none;left:38%;text-align: center;padding-bottom: 0px;">
+          {% if user.profile.image %}
+            <img src="{{ user.profile.image.url }}" width="55px" height="55px" class="img-circle" style="box-shadow:0px 0px 2px 3px rgba(0, 0, 0, 0.3);">
+          {% endif %}
+            <h5 style="color:white;">{{ user.first_name }} {{ user.last_name }}</h5>
+            <h4 style="color:white;">{% for group in user.groups.all %}{{ group.name }}{% endfor %} <i class="fa fa-bookmark"></i></h4>
+        </div>
+        <hr>
+        <nav class="navbar" style="width:100%;">
+            <ul class="nav navbar-nav" style="width:100%;">
+
+
+                <a class="nav_link" href="{% url 'profile' %}"><li id="li_one" class="active"><i class="fa fa-user-circle-o"></i>Sales</li></a>
+                <a class="nav_link" href="{% url 'profile_public_profile' %}"><li id="li_one"><i class="fa fa-bars"></i> Public Profile</li></a>
+                <a class="nav_link" href="{% url 'profile_product' %}"><li id="li_one"><i class="fa fa-bolt"></i> Products</li></a>
+                <a class="nav_link" href="{% url 'profile_setting' %}"><li id="li_one"><i class="fa fa-cart-plus"></i> Settings</li></a>
+                <a class="nav_link" href="{% url 'profile_jobs' %}"><li id="li_one"><i class="fa fa-address-book-o"></i>Jobs</li></a>
+                <a class="nav_link" href="{% url 'profile_stock' %}"><li id="li_one"><i class="fa fa-area-chart"></i> Stock</li></a>
+                <!--<a class="nav_link" href=""><li id="li_one"><i class="fa fa-calendar-check-o"></i> Billing</li></a>-->
+            </ul>
+        </nav>
+    </div>
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10" style="padding: 0px 0px 0px 0px;">
+                <!--<div class="well_one" >
+                    <nav class="navbar navbar-default" id="nav_bar_top" style="overflow:hidden;">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" style="color:rgb(247, 19, 57)">Start-X</a>
+                            </div>
+
+                            <ul class="nav navbar-nav">
+                                <li><a class="active" href="" style="padding-right: 55px;padding-left: 55px;">Sales</a></li>
+                                <li><a href="" style="padding-right: 55px;padding-left: 55px;">Public Profile</a></li>
+                                <li><a href="" style="padding-right: 55px;padding-left: 55px;">Staff</a></li>
+                                <li><a href="" style="padding-right: 55px;padding-left: 55px;">Photos</a></li>
+                                <li><a href="" style="padding-right: 55px;padding-left: 55px;">Setting</a></li>
+                                <li><a href="" style="padding-right: 55px;padding-left: 55px;">Notification</a></li>
+                            </ul>
+                    </nav>
+                </div>-->
+                <!--<div class="col-xs-9"></div>
+                <div class="col-xs-3"></div>-->
+                <div class="row">
+                    <div class="col-sm-9" style="padding-left:30px;">
+
+
+                      <!--Highchart JS to be fitted (World MAp)-->
+                      <h2>Country Based Dashboard</h2>
+                      <div id="demo-wrapper">
+                        <div id="mapBox">
+                            <div id="up"></div>
+                            <div class="selector">
+                                <button id="btn-prev-map" class="prev-next"><i class="fa fa-angle-left"></i></button>
+                                <select id="mapDropdown" class="ui-widget combobox"></select>
+                                <button id="btn-next-map" class="prev-next"><i class="fa fa-angle-right"></i></button>
+                            </div>
+                            <div id="container"></div>
+                        </div>
+                        <div id="sideBox">
+
+                            <input type="checkbox" id="chkDataLabels" checked='checked' />
+                            <label for="chkDataLabels" style="display: inline">Data labels</label>
+                            <div id="infoBox">
+                                <h4>This map</h4>
+                                <div id="download"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--profile visit map-->
+                    <h2>Profile visit per week</h2>
+                    <div id="chartdiv" style="padding-top:30px;"></div>
+
+
+                    <!--High js ends here-->
+
+
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-eye" style="font-size:20px;margin-right:60px;color:orangered;"></div>
+                            <div style="float: right !important;">
+                            <div style="font-size:15px;font-weight:700;float: right;display: block;">1,235</div><br>
+                            <div class="badge" style="border-radius:5px;background: orangered;display: block;float: right;margin-top: 5px;">
+                                User Reach
+                            </div>
+                            </div>
+                        </div>
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-euro" style="font-size:20px;margin-right:60px;color: rgb(0, 255, 136);"></div>
+                            <div style="float:right !important">
+                            <div style="font-size:15px;font-weight:700;float:right;display: block;">1,235</div><br>
+                            <div class="badge" style="border-radius:5px;background: rgb(0, 255, 136);display: block;float: right;margin-top: 5px;">
+                                Sales this month
+                            </div>
+                            </div>
+                        </div>
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-user-plus" style="font-size:20px;margin-right:60px;color:rgb(0, 204, 255);"></div>
+                            <div style="float:right !important;">
+                           <div style="font-size:15px;font-weight:700;float:right;display: block;">1,235</div><br>
+                            <div class="badge" style="border-radius:5px;background: rgb(0, 204, 255);display: block;margin-top: 5px;float: right;">
+                                Unique Viewer's
+                            </div>
+                            </div>
+                        </div>
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-heart" style="font-size:20px;margin-right:60px;color:rgb(255, 32, 118);"></div>
+                            <div style="float:right !important;">
+                            <div style="font-size:15px;font-weight:700;float: right;display: block;">{{ product1 }}</div><br>
+                            <div class="badge" style="border-radius:5px;display: block; background: rgb(255, 32, 118);margin-top: 5px;">
+                                 Number of posts
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer style="width:100%;background: linear-gradient(to left, rgba(0, 9, 12, 0.98), rgba(0, 3, 10, 0.98));margin-top: 15px;margin:0px 0px 0px 0px;overflow: hidden;">
+    <div class="row">
+        <div class="col-sm-3" style="margin-left:30px;float: left;">
+
+        </div>
+        <div class="col-sm-3" style="float: left;">
+            <h5 style="color:white;letter-spacing:1px;">Job Catagories</h5>
+            <ol style="list-style-type:none;">
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Technology</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Sales +
+                        Services</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Marketing</li>
+                </a>
+                <a href=" ">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Corporate</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Internships</li>
+                </a>
+            </ol>
+            <div id="google_translate_element"></div>
+
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+            </script>
+
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        </div>
+        <div class="col-sm-3" style="float: left;right: 0 !important;top: 0 !important;margin-top: 0px !important;">
+            <h5 style="color:white;font-size: 16px;letter-spacing:1px;">Location</h5>
+            <ol style="list-style-type:none;">
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Asia
+                        Pacific</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Europe,
+                        Middle East, Africa</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Latin
+                        America</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">North
+                        America</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Remote</li>
+                </a>
+
+            </ol>
+        </div>
+        <div class="col-sm-3" style="height:100%;background:linear-gradient(to right,#43cbff,#9708cc);width: auto;color:white;float: right;">
+            <h5 style="color:white;letter-spacing: 1px;">Follow us on</h5>
+            <p style="font-size:12px;letter-spacing:0.5px;">See what's happening around the world</p>
+            <ol style="list-style-type:none;">
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-facebook-f" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-instagram" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-pied-piper-pp" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-pinterest-p" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98); "><i
+                                class="fa fa-youtube" style="font-size:20px;"></i></button></li>
+                </a>
+            </ol>
+        </div>
+    </div>
+        </footer>
+
+
+<script>
+  var baseMapPath = "https://code.highcharts.com/mapdata/",
+  showDataLabels = false, // Switch for data labels enabled/disabled
+  mapCount = 0,
+  searchText,
+  mapOptions = '';
+
+// Populate dropdown menus and turn into jQuery UI widgets
+$.each(Highcharts.mapDataIndex, function (mapGroup, maps) {
+  if (mapGroup !== "version") {
+      mapOptions += '<option class="option-header">' + mapGroup + '</option>';
+      $.each(maps, function (desc, path) {
+          mapOptions += '<option value="' + path + '">' + desc + '</option>';
+          mapCount += 1;
+      });
+  }
+});
+searchText = 'Search ' + mapCount + ' maps';
+mapOptions = '<option value="custom/world.js">' + searchText + '</option>' + mapOptions;
+$("#mapDropdown").append(mapOptions).combobox();
+
+// Change map when item selected in dropdown
+$("#mapDropdown").change(function () {
+  var $selectedItem = $("option:selected", this),
+      mapDesc = $selectedItem.text(),
+      mapKey = this.value.slice(0, -3),
+      svgPath = baseMapPath + mapKey + '.svg',
+      geojsonPath = baseMapPath + mapKey + '.geo.json',
+      javascriptPath = baseMapPath + this.value,
+      isHeader = $selectedItem.hasClass('option-header');
+
+  // Dim or highlight search box
+  if (mapDesc === searchText || isHeader) {
+      $('.custom-combobox-input').removeClass('valid');
+      location.hash = '';
+  } else {
+      $('.custom-combobox-input').addClass('valid');
+      location.hash = mapKey;
+  }
+
+  if (isHeader) {
+      return false;
+  }
+
+  // Show loading
+  if (Highcharts.charts[0]) {
+      Highcharts.charts[0].showLoading('<i class="fa fa-spinner fa-spin fa-2x"></i>');
+  }
+
+
+  // When the map is loaded or ready from cache...
+  function mapReady() {
+
+      var mapGeoJSON = Highcharts.maps[mapKey],
+          data = [],
+          parent,
+          match;
+
+      // Update info box download links
+      $("#download").html(
+          '<a class="button" target="_blank" href="https://jsfiddle.net/gh/get/jquery/1.11.0/' +
+              'highcharts/highcharts/tree/master/samples/mapdata/' + mapKey + '">' +
+              'View clean demo</a>' +
+              '<div class="or-view-as">... or view as ' +
+              '<a target="_blank" href="' + svgPath + '">SVG</a>, ' +
+              '<a target="_blank" href="' + geojsonPath + '">GeoJSON</a>, ' +
+              '<a target="_blank" href="' + javascriptPath + '">JavaScript</a>.</div>'
+      );
+
+      // Generate non-random data for the map
+      $.each(mapGeoJSON.features, function (index, feature) {
+          data.push({
+              key: feature.properties['hc-key'],
+              value: index
+          });
+      });
+
+      // Show arrows the first time a real map is shown
+      if (mapDesc !== searchText) {
+          $('.selector .prev-next').show();
+          $('#sideBox').show();
+      }
+
+      // Is there a layer above this?
+      match = mapKey.match(/^(countries\/[a-z]{2}\/[a-z]{2})-[a-z0-9]+-all$/);
+      if (/^countries\/[a-z]{2}\/[a-z]{2}-all$/.test(mapKey)) { // country
+          parent = {
+              desc: 'World',
+              key: 'custom/world'
+          };
+      } else if (match) { // admin1
+          parent = {
+              desc: $('option[value="' + match[1] + '-all.js"]').text(),
+              key: match[1] + '-all'
+          };
+      }
+      $('#up').html('');
+      if (parent) {
+          $('#up').append(
+              $('<a><i class="fa fa-angle-up"></i> ' + parent.desc + '</a>')
+                  .attr({
+                      title: parent.key
+                  })
+                  .click(function () {
+                      $('#mapDropdown').val(parent.key + '.js').change();
+                  })
+          );
+      }
+
+
+      // Instantiate chart
+      $("#container").highcharts('Map', {
+
+          title: {
+              text: null
+          },
+
+          mapNavigation: {
+              enabled: true
+          },
+
+          colorAxis: {
+              min: 0,
+              stops: [
+                  [0, '#EFEFFF'],
+                  [0.5, Highcharts.getOptions().colors[0]],
+                  [1, Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(-0.5).get()]
+              ]
+          },
+
+          legend: {
+              layout: 'vertical',
+              align: 'left',
+              verticalAlign: 'bottom'
+          },
+
+          series: [{
+              data: data,
+              mapData: mapGeoJSON,
+              joinBy: ['hc-key', 'key'],
+              name: 'Random data',
+              states: {
+                  hover: {
+                      color: Highcharts.getOptions().colors[2]
+                  }
+              },
+              dataLabels: {
+                  enabled: showDataLabels,
+                  formatter: function () {
+                      return mapKey === 'custom/world' || mapKey === 'countries/us/us-all' ?
+                              (this.point.properties && this.point.properties['hc-a2']) :
+                              this.point.name;
+                  }
+              },
+              point: {
+                  events: {
+                      // On click, look for a detailed map
+                      click: function () {
+                          var key = this.key;
+                          $('#mapDropdown option').each(function () {
+                              if (this.value === 'countries/' + key.substr(0, 2) + '/' + key + '-all.js') {
+                                  $('#mapDropdown').val(this.value).change();
+                              }
+                          });
+                      }
+                  }
+              }
+          }, {
+              type: 'mapline',
+              name: "Separators",
+              data: Highcharts.geojson(mapGeoJSON, 'mapline'),
+              nullColor: 'gray',
+              showInLegend: false,
+              enableMouseTracking: false
+          }]
+      });
+
+      showDataLabels = $("#chkDataLabels").prop('checked');
+
+  }
+
+  // Check whether the map is already loaded, else load it and
+  // then show it async
+  if (Highcharts.maps[mapKey]) {
+      mapReady();
+  } else {
+      $.getScript(javascriptPath, mapReady);
+  }
+});
+
+// Toggle data labels - Note: Reloads map with new random data
+$("#chkDataLabels").change(function () {
+  showDataLabels = $("#chkDataLabels").prop('checked');
+  $("#mapDropdown").change();
+});
+
+// Switch to previous map on button click
+$("#btn-prev-map").click(function () {
+  $("#mapDropdown option:selected").prev("option").prop("selected", true).change();
+});
+
+// Switch to next map on button click
+$("#btn-next-map").click(function () {
+  $("#mapDropdown option:selected").next("option").prop("selected", true).change();
+});
+
+// Trigger change event to load map on startup
+if (location.hash) {
+  $('#mapDropdown').val(location.hash.substr(1) + '.js');
+} else { // for IE9
+  $($('#mapDropdown option')[0]).attr('selected', 'selected');
+}
+$('#mapDropdown').change();
+//Profile visit graph
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+
+
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+//chart.scrollbarX = new am4core.Scrollbar();
+
+// Add data
+chart.data = [{
+  "country": "1st Day",
+  "visits": 3025
+}, {
+  "country": "2nd Day",
+  "visits": 1500
+}, {
+  "country": "3rd Day",
+  "visits": 1809
+}, {
+  "country": "4th Day",
+  "visits": 2322
+}, {
+  "country": "5th Day",
+  "visits": 1122
+}, {
+  "country": "6th Day",
+  "visits": 1114
+}, {
+  "country": "7th Day",
+  "visits": 984
+}];
+
+// Create axes
+var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+categoryAxis.dataFields.category = "country";
+categoryAxis.renderer.grid.template.location = 0;
+categoryAxis.renderer.minGridDistance = 30;
+categoryAxis.renderer.labels.template.horizontalCenter = "right";
+categoryAxis.renderer.labels.template.verticalCenter = "middle";
+categoryAxis.renderer.labels.template.rotation = 270;
+categoryAxis.tooltip.disabled = true;
+categoryAxis.renderer.minHeight = 110;
+
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+valueAxis.renderer.minWidth = 50;
+
+// Create series
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.sequencedInterpolation = true;
+series.dataFields.valueY = "visits";
+series.dataFields.categoryX = "country";
+series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+series.columns.template.strokeWidth = 0;
+
+series.tooltip.pointerOrientation = "vertical";
+
+series.columns.template.column.cornerRadiusTopLeft = 10;
+series.columns.template.column.cornerRadiusTopRight = 10;
+series.columns.template.column.fillOpacity = 0.8;
+
+// on hover, make corner radiuses bigger
+let hoverState = series.columns.template.column.states.create("hover");
+hoverState.properties.cornerRadiusTopLeft = 0;
+hoverState.properties.cornerRadiusTopRight = 0;
+hoverState.properties.fillOpacity = 1;
+
+series.columns.template.adapter.add("fill", (fill, target)=>{
+  return chart.colors.getIndex(target.dataItem.index);
+})
+
+// Cursor
+chart.cursor = new am4charts.XYCursor();
+
+</script>
+
+
+
+
+{% endblock %}

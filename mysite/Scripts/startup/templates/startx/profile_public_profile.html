@@ -1,0 +1,367 @@
+{% extends 'startx/base_navigation_bar.html' %}
+{% load static %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block head %}
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/0C046DAB-6F28-EA43-9B4E-5F27F2819D75/main.js" charset="UTF-8"></script>
+
+
+{% endblock %}
+
+{% block style %}
+<style>
+
+        .row{
+            height: 100%;
+            margin-right: 0px;
+        }
+
+        /*side wla nevigation bar*/
+
+        #side_nav_bar{
+          background:linear-gradient(to right,#43cbff,#9708cc);
+            min-height: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            position: fixed;
+            padding-top: 55px;
+            padding-left:0px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.45);
+
+        }
+        /*side navbar ke tabs*/
+        #li_one{
+            padding-top: 3px !important;
+            padding-bottom: 3px !important;
+            height: 35px;
+            margin-top: 20px;
+            width: 100% !important;
+            padding-left: 20px;
+            color: white;
+        }
+        .col-xs-2{
+            padding:0px !important;
+        }
+
+        i{
+            padding-right: 10px;
+        }
+
+        /*navbar top ka pura area*/
+        .well_one{
+            padding-top: 35px;
+            padding-bottom: 1px;
+            background-image: url('imn.jpg');
+            background-position:center;
+            background-attachment: fixed;
+            background-size: cover;
+            padding-left: 10px;
+            padding-right: 10px;
+            top: 0 !important;
+            left: 0 !important;
+        }
+        .active{
+            /*background:linear-gradient(to left,rgb(255, 187, 0),rgb(255, 94, 0),rgb(247, 19, 57)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            border-bottom:2px solid orangered;
+            font-weight:700;*/
+            border-left: 3px solid rgb(247, 19, 57);
+            color: white;
+            background:rgba(255, 255, 255, 0.25);
+            display: block;
+        }
+        /*right wle box*/
+        #right_well{
+            background: white;
+            box-shadow: -1px 3px 18px 3px rgba(0, 0, 0, 0.5);
+            margin-top: 25px;
+            width: 100%;
+            height: auto;
+            text-align: left !important;
+        }
+        /*pehla graph beech me jo hai*/
+        #graph_one{
+            box-shadow: -1px 3px 18px 3px rgba(0, 0, 0, 0.5);
+            padding-left:10px;
+        }
+        .tab_ele{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+
+        #active_top_tab{
+            border-bottom: 2px solid rgb(247, 19, 57);
+            color: white !important;
+        }
+
+        </style>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="row" style="margin-top:55px;padding-left:20px;">
+    <div class="col-sm-2 " id="side_nav_bar" style="padding-right:0px;">
+        <div class="well" style="background:transparent; border:none;left:38%;text-align: center;padding-bottom: 0px;">
+          {% if user.profile.image %}
+            <img src="{{ user.profile.image.url }}" width="55px" height="55px" class="img-circle" style="box-shadow:0px 0px 2px 3px rgba(0, 0, 0, 0.3);">
+          {% endif %}
+            <h5 style="color:white;">{{ user.first_name }} {{ user.last_name }}</h5>
+            <h4 style="color:white;">{% for group in user.groups.all %}{{ group.name }}{% endfor %} <i class="fa fa-bookmark"></i></h4>
+        </div>
+        <hr>
+        <nav class="navbar" style="width:100%;">
+            <ul class="nav navbar-nav" style="width:100%;">
+
+
+                <a class="nav_link" href="{% url 'profile' %}"><li id="li_one"><i class="fa fa-user-circle-o"></i>Sales</li></a>
+                <a class="nav_link" href="{% url 'profile_public_profile' %}"><li id="li_one" class="active"><i class="fa fa-bars"></i> Public Profile</li></a>
+                <a class="nav_link" href="{% url 'profile_product' %}"><li id="li_one"><i class="fa fa-bolt"></i> Products</li></a>
+                <a class="nav_link" href="{% url 'profile_setting' %}"><li id="li_one"><i class="fa fa-cart-plus"></i> Settings</li></a>
+                <a class="nav_link" href="{% url 'profile_jobs' %}"><li id="li_one"><i class="fa fa-address-book-o"></i>Jobs</li></a>
+                <a class="nav_link" href="{% url 'profile_stock' %}"><li id="li_one"><i class="fa fa-area-chart"></i> Stock</li></a>
+                <!--<a class="nav_link" href=""><li id="li_one"><i class="fa fa-calendar-check-o"></i> Billing</li></a>-->
+            </ul>
+        </nav>
+    </div>
+
+        <div class="col-sm-2"></div>
+        <div class="col-sm-7" style="margin-top:35px;">
+            <!-- jo card me companies ka data diya hua hai edit maine inhi ke style me kia hu-->
+            <!---ye pehla card hai-->
+            <div class="col-sm-12" align="center">
+                <div class="well"
+                    style="border-radius: 10px;background:white;border:none; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);padding:0px !important;">
+                    <div class="bg_edit"
+                        style="border-top-left-radius: 5px;border-top-right-radius:5px;padding:0px;background: linear-gradient(to right,#43cbff,#9708cc);width: 100%;">
+                        <div class="pp_ctn" align="center" style="padding:0px;margin:0px;">
+                            <img src="un.jpg" width="60px" height="60px"
+                                style="border-radius:10px;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);margin-top:-30px;">
+                        </div>
+                        <div class="name_ctn" align="center" style="padding-top:3px;">
+                            <label style="display:block;color: white;letter-spacing: 1px;">Tom R. Lionel</label>
+                            <samll align="center"
+                                style="display:block;font-size:11px;color: rgb(212, 211, 211);margin-top:-5px;">CEO & Co-Founder
+                            </samll>
+                            <div class="log_ctn" style="padding-top:0px;padding-bottom:1px;">
+                                <a href=""><i class="fa fa-twitter" style="font-size:16px;"></i></a>
+                                <a href=""><i class="	fa fa-instagram" style="font-size:16px;"></i></a>
+                                <a href=""><i class="	fa fa-behance" style="font-size:16px;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inforamtion_ctn" style="margin-top:50px;text-align: left;">
+                        <div class="inside_form_un" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;padding-left: 15px;padding-left: 15px;padding-left: 15px;padding-left: 15px;">Userame
+                                :</label><span style="padding-left:15px;">Tomlionel</span></div>
+                        <div class="inside_form_cn" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;padding-left: 15px;padding-left: 15px;padding-left: 15px;">Company
+                                Name :</label><span style="padding-left:15px;">Amazon</span></div>
+                        <div class="inside_form_cd" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;padding-left: 15px;padding-left: 15px;">Company's
+                                Description
+                                :</label><span style="padding-left:15px;">E-commerse website</span>
+                        </div>
+                        <div class="inside_form_courl" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;">Company's URL
+                                :</label><span style="padding-left:15px;"><a
+                                    href="https://www.amazon.com">www.Amazon.com</a></span>
+                        </div>
+                        <div class="inside_form_cfo" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;padding-left: 15px;">Company
+                                Founded on
+                                :</label><span style="padding-left:15px;">May 2, 2018</span>
+                        </div>
+                        <div class="inside_form_cno" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;">Contact No.
+                                :</label><span style="padding-left:15px;">+123-9876562</span>
+                        </div>
+                        <div class="inside_form_edu" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;">Education
+                                :</label><span style="padding-left:15px;">Southampton College, United Kingdom</span>
+                        </div>
+                        <div class="inside_form_hq" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;">Headquarter
+                                :</label><span style="padding-left:15px;">Lucia City, Stuttgart, Germany</span>
+                        </div>
+                        <div class="inside_form_add" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;">Current Address
+                                :</label><span style="padding-left:15px;">A/B, One-way street, Lucia City, Stuttgart,
+                                Germany</span>
+                        </div>
+                        <div class="inside_form_cty" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;">Country
+                                :</label><span style="padding-left:15px;">Germany</span>
+                        </div>
+                        <div class="inside_form_des" style="display:block;"><label
+                                style="padding-top:5px;padding-bottom:5px;padding-left: 15px;">Company's Description
+                                :</label><span
+                                style="padding-left:15px;text-align: justify;display: block;max-width: 700px;">Amazon.com, Inc.,
+                                doing business as Amazon, is a multinational technology company focusing in e-commerce, cloud
+                                computing, and artificial intelligence in Seattle, Washington</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+                    <div class="col-sm-3">
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-eye" style="font-size:20px;margin-right:60px;color:orangered;"></div>
+                            <div style="float: right !important;">
+                            <div style="font-size:15px;font-weight:700;float: right;display: block;">1,235</div><br>
+                            <div class="badge" style="border-radius:5px;background: orangered;display: block;float: right;margin-top: 5px;">
+                                User Reach
+                            </div>
+                            </div>
+                        </div>
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-euro" style="font-size:20px;margin-right:60px;color: rgb(0, 255, 136);"></div>
+                            <div style="float:right !important">
+                            <div style="font-size:15px;font-weight:700;float:right;display: block;">1,235</div><br>
+                            <div class="badge" style="border-radius:5px;background: rgb(0, 255, 136);display: block;float: right;margin-top: 5px;">
+                                Sales this month
+                            </div>
+                            </div>
+                        </div>
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-user-plus" style="font-size:20px;margin-right:60px;color:rgb(0, 204, 255);"></div>
+                            <div style="float:right !important;">
+                           <div style="font-size:15px;font-weight:700;float:right;display: block;">1,235</div><br>
+                            <div class="badge" style="border-radius:5px;background: rgb(0, 204, 255);display: block;margin-top: 5px;float: right;">
+                                Unique Viewer's
+                            </div>
+                            </div>
+                        </div>
+                        <div class="well" id="right_well" style="padding-bottom:30px;">
+                            <div class="fa fa-heart" style="font-size:20px;margin-right:60px;color:rgb(255, 32, 118);"></div>
+                            <div style="float:right !important;">
+                            <div style="font-size:15px;font-weight:700;float: right;display: block;">{{ product1 }}</div><br>
+                            <div class="badge" style="border-radius:5px;display: block; background: rgb(255, 32, 118);margin-top: 5px;">
+                                 Number of posts
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                <footer style="width:100%;background: linear-gradient(to left, rgba(0, 9, 12, 0.98), rgba(0, 3, 10, 0.98));margin-top: 15px;margin:0px 0px 0px 0px;overflow: hidden;">
+            <div class="row">
+                <div class="col-sm-3" style="margin-left:30px;float: left;">
+
+                </div>
+                <div class="col-sm-3" style="float: left;">
+                    <h5 style="color:white;letter-spacing:1px;">Job Catagories</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Technology</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Sales +
+                                Services</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Marketing</li>
+                        </a>
+                        <a href=" ">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Corporate</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Internships</li>
+                        </a>
+                    </ol>
+                    <div id="google_translate_element"></div>
+
+                    <script type="text/javascript">
+                      function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                      }
+                    </script>
+
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                </div>
+                <div class="col-sm-3" style="float: left;right: 0 !important;top: 0 !important;margin-top: 0px !important;">
+                    <h5 style="color:white;font-size: 16px;letter-spacing:1px;">Location</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Asia
+                                Pacific</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Europe,
+                                Middle East, Africa</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Latin
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">North
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Remote</li>
+                        </a>
+
+                    </ol>
+                </div>
+                <div class="col-sm-3" style="height:100%;background:linear-gradient(to right,#43cbff,#9708cc);width: auto;color:white;float: right;">
+                    <h5 style="color:white;letter-spacing: 1px;">Follow us on</h5>
+                    <p style="font-size:12px;letter-spacing:0.5px;">See what's happening around the world</p>
+                    <ol style="list-style-type:none;">
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-facebook-f" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-instagram" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pied-piper-pp" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pinterest-p" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98); "><i
+                                        class="fa fa-youtube" style="font-size:20px;"></i></button></li>
+                        </a>
+                    </ol>
+                </div>
+            </div>
+                </footer>
+
+
+
+
+
+{% endblock %}

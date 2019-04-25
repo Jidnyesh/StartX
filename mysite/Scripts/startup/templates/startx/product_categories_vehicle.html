@@ -1,0 +1,29 @@
+{% extends 'startx/base.html' %}
+{% block content %}
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Product Title</th>
+      <th>Category</th>
+      <th>Startup owner</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for inst in instance %}
+      <tr>
+        <td class="align-middle">
+          <h4>{{ inst.title }}</h4><br>
+        </td>
+        <td class="align-middle">{{ inst.product_category }}</td>
+        <td class="align-middle">{{ inst.user.first_name }}</td>
+        <td>
+          {% if inst.image %}
+            <img src="{{ inst.image.url }}" class="img-responsive" height="50" width="100"><br>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

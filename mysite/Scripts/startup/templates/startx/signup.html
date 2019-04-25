@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sign-in here</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        html,body{
+            height: 100%;
+            height: 100%;
+            font-family: poppins;
+
+        }
+        select {
+            border: none;
+            width: 85%;
+            height: 35px;
+            border-radius: 10px;
+            background-color:rgba(128, 128, 128, 0.2);
+            margin-top: 25px;
+            /*color: rgba(230, 228, 228, 0.925);*/
+            color: black;
+            outline: none;
+            padding-left: 15px;
+        }
+        .drp_ctn{
+            width: 95px;
+            height:30px;
+            border: none;
+            background:linear-gradient(to right,#ff0116,#580704);
+            /*background: linear-gradient(to right , rgb(209, 15, 193),rgb(245, 24, 116),rgb(253, 6, 80));*/
+            margin-top: 25px;
+            color: rgb(37, 5, 18);
+            border-radius: 50px;
+            outline: none !important;
+            font-family: poppins;
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+        form{
+            text-align: center;
+        }
+        .signupctn{
+            width: 350px;
+            height: auto;
+            border: none;
+            /*background:linear-gradient(to left,rgba(24, 1, 15, 0.98),rgba(24, 0, 27, 0.98));*/
+            background-color: white;
+            border-radius: 15px;
+            outline: none;
+            margin-bottom: 15px;
+        }
+        input[type="text"]{
+            width: 85%;
+            height: 35px;
+            margin-top: 10px;
+            border: none;
+            background-color:rgba(128, 128, 128, 0.2);
+            border-radius: 10px;
+            /*background-color:rgba(0, 0, 0, 0);
+            border-bottom: 1px solid rgba(255, 43, 174, 0.5);*/
+            padding-left: 15px;
+            outline: none;
+            color: black;
+        }
+        input[type="password"]{
+            width: 85%;
+            height: 35px;
+            margin-top: 10px;
+            border: none;
+            background-color:rgba(0, 0, 0, 0);
+            padding-left: 15px;
+            background-color:rgba(128, 128, 128, 0.2);
+            border-radius: 10px;
+            outline: none;
+            color: black;
+        }
+        input[type="email"]{
+            width: 80%;
+            height: 35px;
+            margin-top: 10px;
+            border: none;
+            background-color:rgba(0, 0, 0, 0);
+            padding-left: 15px;
+            background-color:rgba(128, 128, 128, 0.2);
+            border-radius: 10px;
+            outline: none;
+            color: black;
+        }
+        .btnsignup{
+            width: 80%;
+            height: 35px;
+            border: none;
+            /*background:linear-gradient(to right,#01e1ff,#030436);*/
+            /*background:linear-gradient(to right,#ff0116,#580704);*/
+            /*background: linear-gradient(to right , rgb(209, 15, 193),rgb(245, 24, 116),rgb(253, 6, 80));*/
+            background:linear-gradient(to right,#43cbff,#9708cc);
+            margin-top: 20px;
+            color: rgb(37, 5, 18);
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+            margin-bottom: 15px;
+            outline: none !important;
+            letter-spacing: 1px;
+            font-family: poppins;
+        }
+        /*.logoctn{
+            text-align: center;
+            max-width: 350px;
+            background:linear-gradient(to right,#ff0116,#580704);
+            font-family: poppins;
+            padding-top:7px;
+            padding-bottom: 7px;
+            border-radius: 15px;
+            color: rgb(37, 5, 18);
+        }*/
+        .logoctn{
+            background:linear-gradient(to right,#43cbff,#9708cc);
+            /*background:linear-gradient(to right,#01e1ff,#030436);*/
+            /*background:linear-gradient(to right,#ff0138,#e20a1c);*/
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .signupctn{
+            position: absolute;
+            top: 22%;
+            left: 45%;
+            margin-top: -35px;
+            margin-left: -100px;
+            box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.05),0px 0px 5px 7px rgba(224, 37, 24, 0.05);
+        }
+        .main_header{
+            font-family: 'Staatliches', cursive;
+            font-family: 'Major Mono Display', monospace;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding-top: 5px;
+            padding-bottom: 5px;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+            color: rgba(247, 19, 57, 1);
+            width: 100%;
+            position: absolute;
+        }
+        a:hover{
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .dropdown-menu{
+            background:rgba(128, 128, 128, 0.2);
+        }
+        button{
+            transition: 0.5s;
+        }
+        button:active{
+            transform: scale(0.975);
+        }
+        .or_signup_with{
+            background:linear-gradient(to right,#43cbff,#9708cc);
+            /*background:linear-gradient(to right,#01e1ff,#030436);*/
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: light;
+            font-size: 16px;
+            padding-top:0px;
+            /*color: white;*/
+        }
+        .active_btn{
+            border-bottom: 2px solid rgb(22, 21, 36) !important;
+        }
+        i {
+            transition: 0.5s;
+            background:linear-gradient(to right,#ff0116,#580704);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        i:hover{
+           background:linear-gradient(to right,#ff0116,#580704);
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+            text-decoration: none !important;
+            transform: scale(1.120);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="position:absolute;z-index:200;padding-bottom:5px;padding-top:5px;background-color:transparent;border: none;width: 100%;">
+        <div class="container-fluid">
+            <a href="#"><h2 class="navbar-header" style="letter-spacing:1px;color:linear-gradient(to right,#43cbff,#9708cc);font-weight: bold;">Start-X <small style="font-size:13px;letter-spacing: 1px;color:linear-gradient(to right,#43cbff,#9708cc);"><i style="color:linear-gradient(to right,#43cbff,#9708cc);">your empire builder</i></small></h2></a>
+
+            <ul class="navbar-right" style="padding-right:55px;padding-top: 10px;">
+                <a href="{% url 'loginv' %}"><li style="list-style:none;"><button class="btn btn-default" style="color:white;background:linear-gradient(to right,#43cbff,#9708cc);border:none;">Log-in</button></li></a>
+            </ul>
+        </div>
+    </nav>
+    <div class="row" style="height:100% !important;top: 0;left: 0;position:relative;text-align:center;">
+        <div class="col-xs-7" id="img_ctn" style="height:100% !important;">
+            <img src="{% static 'images/background.png' %}" style=" width:100%;height:100%;">
+            <ul style="margin-top:-50px;">
+                <a href="" style="color:rgb(32, 1, 1);"><li style="display:inline-block;margin-left:35px;background: transparent;font-weight: bold;">contact us</li></a>
+                <a href="" style="color:rgb(32, 1, 1);"><li style="display:inline-block;margin-left:35px;background: transparent;font-weight: bold;">about us</li></a>
+                <a href="" style="color:rgb(32, 1, 1);"><li style="display:inline-block;margin-left:35px;background: transparent;font-weight: bold;">home</li></a>
+            </ul>
+        </div>
+        <div class="col-xs-5" style="text-align:center;padding-top: 450px;">
+                    <div class="signupctn">
+                        <div class="logoctn">
+                            <h3 style="font-size: 40px;font-weight:500;">Start-X</h3>
+                        </div>
+                        <form method="POST" action="{% url 'index' %}">{% csrf_token %}
+                            {{ form.as_p }}
+                            <script src='https://www.google.com/recaptcha/api.js'></script>
+                            <div class="g-recaptcha" data-sitekey="6Lf2E4cUAAAAABvYl_arqrXzGJcKzWbexJGJns9m"></div>
+
+
+                            <button type="submit" style="color:white;" class="btn btn-default btnsignup">Signup</button>
+                            <div class="form-group" style="text-align:center;padding-bottom: 0px;">
+                                <h6 class="or_signup_with">-Or Sign up with-</h6>
+                                <a href="#" title="Facebook"><i class="fa fa-facebook-square" style="font-size:30px;padding-right: 15px;padding-bottom:0px;"></i></a>
+                                <a href="#" title="Google"><i class="fa fa-google" style="font-size:30px; padding-right: 30px;padding-left:20px;padding-bottom:0px;"></i></a>
+                                <a href="#" title="Instagram"><i class="fa fa-instagram" style="font-size:30px;padding-right: 15px;padding-bottom:5px;"></i></a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--<div class="signin_login_btn" style="margin-left: -35px;max-width: 130px;text-align: left;position: fixed;margin-top: -150px;z-index: -150;">
+                            <a><button type="button" class="active_btn btn btn-default" style="width:130px;border: none;box-shadow: 0px 0px 7px rgba(22, 21, 36, 0.25);">sign-in</button></a>
+                            <a><button type="button" class="btn btn-default" style="width:130px;margin-top: 10px;border: none;background-color: rgb(22, 21, 36);color: white;font-weight: lighter;box-shadow: 0px 0px 7px rgba(22, 21, 36, 0.25);">log-in</button></a>
+                    </div>-->
+        </div>
+    </div>
+</body>
+</html>

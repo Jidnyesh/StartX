@@ -1,0 +1,508 @@
+{% extends 'startx/base_navigation_bar.html' %}
+{% load static %}
+{% block title %}Advertisement{% endblock %}
+{% block head %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Advertisement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block style %}
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            background: white;
+        }
+        .panel-group,.panel-heading,.panel-body{
+            border:none;
+        }
+        .panel-heading{
+            /*background:linear-gradient(to right,#43cbff,#9708cc);*/
+
+        }
+        /*rating wle star ko edit karne ke liye*/
+        .checked{
+            color: orange;
+        }
+        /*star ke font size ke liye*/
+        .fa{
+            font-size:12px;
+        }
+        /*jo be rounded box hai button k alawa unko edit karne k liye*/
+        .badge{
+            padding-top: 5px;
+            padding-bottom:5px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+.filterDiv {
+  display: none; /* Hidden by default */
+  -webkit-animation-name: animation;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+  animation-name: animation;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  overflow: hidden;
+}
+@-webkit-keyframes animation{
+    0% {
+        opacity:0;width: 0%;
+    }
+    100% {
+        opacity: 1;width: 100%;
+    }
+}
+@keyframe animation{
+    0% {
+        opacity:0;width:0%;
+    }
+    100% {
+        opacity: 1;width:100%;
+    }
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+.btn{
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    margin:2px;
+
+}
+
+/* Style the buttons */
+
+/* Add a light grey background on mouse-over */
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="row" style="margin-top: 70px;">
+        <!--left side content-->
+        <div class="col-sm-2">
+            <div class="well" style="background:linear-gradient(to right,#43cbff,#9708cc);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);">
+                <!--<h5><i class="fa fa-angle-double-right" style="margin-right:5px;font-size:16px;"></i>Select by your choice:</h5>-->
+                <div class="panel" style="box-shadow:0px 0px 15px rgba(0, 0, 0, 0.25);">
+                    <div class="panel-heading" style="border-bottom: 2px solid rgba(114, 198, 231, 0.25); background:transparent;">
+                        <h5 style="
+            color: #083c49;"><i class="fa fa-angle-double-right" style="margin-right:5px;font-size:16px;color: #71c4e6;"></i>Select by your choice:</h5>
+                    </div>
+                    <div class="panel-body">
+                        <div id="btn_cotainer" style="padding-left:10px;">
+                            <span style="display:block;padding: 3px;"><input type="radio" name="radio1" value="31,000+" class="btn" onclick="filterSelection('31,000+')"
+                                    style="margin-right:3px;">31,000+</span>
+                            <span style="display:block;padding: 3px;"><input type="radio" name="radio1" value="21,000-30,000" class="btn"
+                                    onclick="filterSelection('21,000-30,000')" style="margin-right:3px;">21,000-30,000</span>
+                            <span style="display:block;padding: 3px;"><input type="radio" name="radio1" value="11,000-20,000" class="btn"
+                                    onclick="filterSelection('11,000-20,000')" style="margin-right:3px;">11,000-20,000</span>
+                            <span style="display:block;padding: 3px;"><input type="radio" name="radio1" value="below 10,000" class="btn"
+                                    onclick="filterSelection('-10,000')" style="margin-right:3px;">below 10,000</span>
+                            <span style="display:block;padding: 3px;"><input type="radio" name="radio1" value="show all" class="btn active"
+                                    onclick="filterSelection('all')" style="margin-right:3px;">show all</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="well" style="background:linear-gradient(to right,#43cbff,#9708cc);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);">
+                <div class="panel panel-default" style="border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.25);">
+                    <div class="panel-heading" style="border-bottom: 2px solid #72c6e7; background:transparent;">
+                        <a href="#col-one" data-toggle="collapse" style="color: #083c49;"><i class="fa fa-angle-double-right" style="margin-right:5px;font-size:16px;color: #71c4e6;"></i>Select by your location:</a>
+                    </div>
+                    <div id="col-one" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="border-bottom: 2px solid #72c6e7; background:transparent;color: #083c49;">
+                                        <a href="#col-one-inner-state" data-toggle="collapse"><i class="fa fa-angle-double-right"
+                                                style="margin-right:5px;font-size:13px;color: #71c4e6;"></i><label style="font-size:13px;font-weight:lighter;color: #083c49;">Maharashatra</label></a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="col-one-inner-state">
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><input type="radio" value="nagpur" name="loc_name_1" style="margin-right:3px;"><label style="font-size:12px;font-weight:lighter;">Nagpur</label></li>
+                                                <li class="list-group-item"><input type="radio" value="pune" name="loc_name_1" style="margin-right:3px;"><label style="font-size:12px;font-weight:lighter;">Pune</label></li>
+                                                <li class="list-group-item"><input type="radio" value="mumbai" name="loc_name_1" style="margin-right:3px;"><label style="font-size:12px;font-weight:lighter;">Mumbai</label></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"  style="border-bottom: 2px solid #72c6e7; background:transparent;">
+                                        <a href="#col-one-inner-state-2" data-toggle="collapse"><i class="fa fa-angle-double-right" style="margin-right:5px;font-size:13px;color: #71c4e6;"></i><label
+                                                style="font-size:13px;font-weight:lighter;color: #083c49;">Gujarat</label></a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="col-one-inner-state-2">
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><input type="radio" value="nagpur" name="loc_name_2" style="margin-right:3px;"><label
+                                                        style="font-size:12px;font-weight:lighter;">Nagpur</label></li>
+                                                <li class="list-group-item"><input type="radio" value="pune" name="loc_name_2" style="margin-right:3px;"><label
+                                                        style="font-size:12px;font-weight:lighter;">Pune</label></li>
+                                                <li class="list-group-item"><input type="radio" value="mumbai" name="loc_name_2" style="margin-right:3px;"><label
+                                                        style="font-size:12px;font-weight:lighter;">Mumbai</label></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" style="border-bottom: 2px solid #72c6e7; background:transparent;">
+                                        <a href="#col-one-inner-state-3" data-toggle="collapse"><i class="fa fa-angle-double-right" style="margin-right:5px;font-size:13px;color: #71c4e6;"></i><label
+                                                style="font-size:13px;font-weight:lighter;color: #083c49;">Kerela</label></a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="col-one-inner-state-3">
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item"><input type="radio" value="nagpur" name="loc_name_3" style="margin-right:3px;"><label
+                                                        style="font-size:12px;font-weight:lighter;">Nagpur</label></li>
+                                                <li class="list-group-item"><input type="radio" value="pune" name="loc_name_3" style="margin-right:3px;"><label
+                                                        style="font-size:12px;font-weight:lighter;">Pune</label></li>
+                                                <li class="list-group-item"><input type="radio" value="mumbai" name="loc_name_3" style="margin-right:3px;"><label
+                                                        style="font-size:12px;font-weight:lighter;">Mumbai</label></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'add_advertisement' %}">Add Advertisement</a>
+        <div class="col-sm-8">
+            <!--content of the advertisement-->
+                {% for inst in instance %}
+                    <div class="filterDiv -10,000 well" style="width:100%;background: white;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);">
+                        <div class="row">
+                            <div class="col-sm-7">
+                              {% if inst.user.profile.image %}
+                                <img class="img-circle" src="{{ inst.user.profile.image.url }}" width="50px" height="50px" style="float:left;margin-right: 15px;padding-top: 0px;">
+                              {% endif %}
+                                <a href=""><span style="display:block;font-weight:bold; font-size: 12px;">{{ inst.user.profile.company_name }}</span></a>
+                                <span style="display:block;color:gray;font-size:11px;">{{ inst.city }}</span>
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                                <!--<h5 style="font-size:11px;color: rgba(128, 128, 128, 0.6);font-weight: 700;letter-spacing: 1px;">Our Benchmarks</h5>-->
+                                <ul style="font-size:12px;display: block;padding-top:10px;letter-spacing: 0.5px;max-width: 600px !important;">
+                                    <li>Category : {{ inst.category }}</li>
+                                    <li>We have our branches all around the globe.</li>
+                                </ul>
+                                <div class="badge" style="padding-bottom:4px;padding-left:20px;padding-right:20px;font-weight:lighter;margin-top:5px;text-align: center;padding-top:5px;font-size: 9px;letter-spacing: 1px;background:linear-gradient(to right,#f761a1,#8c1bab);">Duration:
+                                    {{ inst.duration }} days</div>
+                                <div class="badge" style="padding-bottom:4px;padding-left:20px;padding-right:20px;font-weight:lighter;margin-top:5px;text-align: center;padding-top:5px;font-size: 9px;letter-spacing: 1px;background:linear-gradient(to right,#f761a1,#8c1bab);">Offers:
+                                    Available</div>
+                            </div>
+                            <div class="col-sm-5">
+                                <!--right part of the content box ,pricing ,buttons etc.-->
+                                <div class="" style="text-align:right;float: right;">
+                                    <span style="font-size:12px;display: block;">Package starting from:</span>
+                                    <label style="display:block;color: rgb(15, 209, 15);">{{ inst.price }}<small>/month</small></label>
+                                    <span><del style="font-size:11px;">Rs 20,000</del>
+                                        <div class="badge" style="background:linear-gradient(to right,#46eeaa,#2cbfc7);display:block;display: inline-block;color: white;">25% off</div>
+                                    </span>
+                                    <!--button on the right side of the content box-->
+                                    <span style="display:block;font-size:11px;color: rgb(224, 13, 13);padding-top:5px;padding-bottom:10px;">saved
+                                        Rs 5,000</span>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#abt_five" style="background:linear-gradient(to right,#43cbff,#9708cc);display:block;margin-top: 5px;display: inline-block;color: white;">
+                                            Details
+                                        </button>
+                                    <!--<a href=""><button type="button" class="btn btn-default" style="background:linear-gradient(to right,#43cbff,#9708cc);color:white;display: inline-block;margin-top:5px;">
+                                            contact
+                                        </button></a>-->
+                                        <div class="modal fade" id="abt_five" role="dialog" style="text-align:left;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header" style="background:linear-gradient(to right,#43cbff,#9708cc);color: white;border-top-left-radius: 5px;">
+                                                        <button data-dismiss="modal" class="close" type="button">&times;</button>
+                                                        <h4 class="modal-title">
+                                                            ReachOne Advertisement Pvt. Ltd.
+                                                        </h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5 style="font-weight:bold;">Description</h5>
+                                                        <p style="text-align:justify;">
+                                                            {{ inst.discription }}
+                                                        </p>
+                                                        <h5 style="font-weight:bold;">Contact</h5>
+                                                        <p style="text-align:justify;">
+                                                            For more information about the advertisement , contact us on {{ inst.contact }}
+                                                        </p>
+                                                        <h5 style="font-weight:bold;">Full Address</h5>
+                                                        <p style="text-align:justify;">
+                                                            {{ inst.location }}
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" data-dismiss="modal" class="btn btn-default" style="background:linear-gradient(to right,#43cbff,#9708cc);color:white;">Close</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--price given at right side of perticular content box-->
+                      {% endfor %}
+
+                    </div>
+        </div>
+        <!--Right side content-->
+        <div class="col-sm-2">
+            <div class="well" style="border:none;background:white;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);text-align: left;">
+                <h5>Suggested Posts:</h5>
+                <!--Post 1-->
+                <span style="display:block;margin-top: 10px;">
+                   <a href="" style="display: inline-block"><div class="badge" id="rec_one" style="text-align: left;max-width:175px;width: 175px;border-bottom: 3px solid #72c6e7;background:transparent;color: #380849;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;">Principles
+                    of marketing<br><small style="font-size:11px;font-weight:lighter;display: block;color:#72c6e7;float: left;margin-top: 2px;">Get registerd</small></label>
+                    <label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By A.T.Thomas</label>
+                </div>
+                </a>
+                </span>
+                <!--Post 2-->
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;border-bottom: 3px solid #72c6e7;background:transparent;color: #380849;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;">Principles
+                                of marketing<br><small style="font-size:11px;font-weight:lighter;display: block;color:#72c6e7;float: left;margin-top: 2px;">Get
+                                    registerd</small></label>
+                            <label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                A.T.Thomas</label>
+                        </div>
+                    </a>
+                </span>
+                <!--Post 3-->
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;border-bottom: 3px solid #72c6e7;background:transparent;color: #380849;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;">Principles
+                                of marketing<br><small style="font-size:11px;font-weight:lighter;display: block;color:#72c6e7;float: left;margin-top: 2px;">Get
+                                    registerd</small></label>
+                            <label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                A.T.Thomas</label>
+                        </div>
+                    </a>
+                </span>
+            </div>
+            <div class="well" style="border:none;background:white;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);text-align: left;">
+                <h5>Advertisers near you:</h5>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;border-bottom: 3px solid #ff63de;background:transparent;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;color:#d826b1;">Kevin
+                                Advertisers
+                                <br><small style="font-size:11px;font-weight:lighter;display: block;color:#421738;float: left;margin-top: 2px;">Book
+                                    Now</small></label>
+                            <!--<label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                                A.T.Thomas</label>-->
+                            <a><button type="button" class="btn btn-default" style="border:none;float: right;border-radius: 60px;background: #ff95e8;"><i
+                                        class="fa fa-plus"></i></button></a>
+                        </div>
+                    </a>
+                </span>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;border-bottom: 3px solid #ff63de;background:transparent;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;color: #d826b1;">Gemini
+                                Advertisers
+                                <br><small style="font-size:11px;font-weight:lighter;display: block;color:#421738;float: left;margin-top: 2px;">Book
+                                    Now</small></label>
+                            <!--<label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                                                A.T.Thomas</label>-->
+                            <a><button type="button" class="btn btn-default" style="border:none;float: right;border-radius: 60px;background: #ff95e8;"><i
+                                        class="fa fa-plus"></i></button></a>
+                        </div>
+                    </a>
+                </span>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;border-bottom: 3px solid #ff63de;background:transparent;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;color: #d826b1;">Golden
+                                Advertisers
+                                <br><small style="font-size:11px;font-weight:lighter;display: block;color:#421738;float: left;margin-top: 2px;">Book
+                                    Now</small></label>
+                            <!--<label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                                                A.T.Thomas</label>-->
+                            <a><button type="button" class="btn btn-default" style="border:none;float: right;border-radius: 60px;background:#ff95e8;"><i
+                                        class="fa fa-plus"></i></button></a>
+                        </div>
+                    </a>
+                </span>
+            </div>
+        </div>
+        <footer style="width:100%;background: linear-gradient(to left, rgba(0, 9, 12, 0.98), rgba(0, 3, 10, 0.98));margin-top: 15px;margin:0px 0px 0px 0px;overflow: hidden;">
+            <div class="row">
+                <div class="col-sm-3" style="margin-left:30px;float: left;">
+                    <h5 style="color:white;letter-spacing:1px;">Find A Job</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="letter-spacing:0.5px;color:#43cbff">Job search</li>
+                        </a>
+                    </ol>
+                    <div id="google_translate_element"></div>
+
+                    <script type="text/javascript">
+                      function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                      }
+                    </script>
+
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                </div>
+                <div class="col-sm-3" style="float: left;">
+                    <h5 style="color:white;letter-spacing:1px;">Job Catagories</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Technology</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Sales +
+                                Services</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Marketing</li>
+                        </a>
+                        <a href=" ">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Corporate</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Internships</li>
+                        </a>
+                    </ol>
+                </div>
+                <div class="col-sm-3" style="float: left;right: 0 !important;top: 0 !important;margin-top: 0px !important;">
+                    <h5 style="color:white;font-size: 16px;letter-spacing:1px;">Location</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Asia
+                                Pacific</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Europe,
+                                Middle East, Africa</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Latin
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">North
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Remote</li>
+                        </a>
+
+                    </ol>
+                </div>
+                <div class="col-sm-3" style="height:100%;background:linear-gradient(to right,#43cbff,#9708cc);width: auto;color:white;float: right;">
+                    <h5 style="color:white;letter-spacing: 1px;">Follow us on</h5>
+                    <p style="font-size:12px;letter-spacing:0.5px;">See what's happening around the world</p>
+                    <ol style="list-style-type:none;">
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-facebook-f" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-instagram" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pied-piper-pp" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pinterest-p" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98); "><i
+                                        class="fa fa-youtube" style="font-size:20px;"></i></button></li>
+                        </a>
+                    </ol>
+                </div>
+            </div>
+        </footer>
+        <script>
+            filterSelection("all")
+                function filterSelection(c) {
+                    var x, i;
+                    x = document.getElementsByClassName("filterDiv");
+                    if (c == "all") c = "";
+                    // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+                    for (i = 0; i < x.length; i++) {
+                        w3RemoveClass(x[i], "show");
+                        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+                    }
+                }
+
+                // Show filtered elements
+                function w3AddClass(element, name) {
+                    var i, arr1, arr2;
+                    arr1 = element.className.split(" ");
+                    arr2 = name.split(" ");
+                    for (i = 0; i < arr2.length; i++) {
+                        if (arr1.indexOf(arr2[i]) == -1) {
+                            element.className += " " + arr2[i];
+                        }
+                    }
+                }
+
+                // Hide elements that are not selected
+                function w3RemoveClass(element, name) {
+                    var i, arr1, arr2;
+                    arr1 = element.className.split(" ");
+                    arr2 = name.split(" ");
+                    for (i = 0; i < arr2.length; i++) {
+                        while (arr1.indexOf(arr2[i]) > -1) {
+                            arr1.splice(arr1.indexOf(arr2[i]), 1);
+                        }
+                    }
+                    element.className = arr1.join(" ");
+                }
+
+                // Add active class to the current control button (highlight it)
+                var btnContainer = document.getElementById("myBtnContainer");
+                var btns = btnContainer.getElementsByClassName("btn");
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener("click", function () {
+                        var current = document.getElementsByClassName("active");
+                        current[0].className = current[0].className.replace(" active", "");
+                        this.className += " active";
+                    });
+                }
+        </script>
+    </div>
+{% endblock %}

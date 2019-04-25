@@ -1,0 +1,369 @@
+{% extends 'startx/base_navigation_bar.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Catagory_new</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% block style %}
+    <style>
+        body{
+            /*background:rgb(255, 255, 255);*/
+            background: linear-gradient(to right, #360033, #0b8793);
+        }
+
+        a{
+            text-decoration: none !important;
+            cursor: pointer;
+        }
+        .carousel{
+            width: 100%;
+            height: 350px !important;
+            margin-top: 3px;
+        }
+        /*.carousel-inner .item{
+            height: 450px;
+        }*/
+        .carousel-indicators{
+            margin-bottom: -100px;
+        }
+        #jum_ten{
+            font-family: poppins;
+            background:linear-gradient(to right,rgb(255, 187, 0),rgb(255, 94, 0),rgb(247, 19, 57));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            visibility: hidden;
+        }
+        #jum_one{
+            background: rgba(17, 0, 17, 0.5);
+            visibility: hidden;
+        }
+        .carousel-indicators li{
+            background-color: rgba(27, 4, 41, 0.5);
+            border: 1px solid rgba(255, 64, 39, 0.65);
+        }
+        .carousel-indicators li:active{
+            color: orangered !important;
+        }
+        img{
+            filter: saturate(1.8);
+        }
+
+        .class_1{
+            /*background-image: url('a1.jpg');
+            background-size: cover ;
+            background-repeat: no-repeat;
+            background-position: center;*/
+            height: 350px;
+            text-align: center;
+            width: 49%;
+            margin: 2px;
+            border-radius: 5px;
+            padding: 0px;
+        }
+        .class_2{
+            /*background-image: url('ho.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;*/
+            height: 350px;
+            width: 49%;
+            margin: 2px;
+            border-radius: 5px;
+            padding: 0px;
+        }
+        .class_3{
+            /*background-image: url('cy.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;*/
+            height: 350px;
+            width: 49%;
+            left: 0;
+            margin: 2px;
+            border-radius: 5px;
+            padding: 0px;
+        }
+        .class_4{
+            /*background-image: url('mb.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;*/
+            height: 350px;
+            width: 49%;
+            right: 0;
+            margin: 2px;
+            border-radius: 5px;
+            padding: 0px;
+        }
+        .class_5{
+            /*background-image: url('aw1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;*/
+            height: 350px;
+            width: 49%;
+            left: 0;
+            margin: 2px;
+            border-radius: 5px;
+            padding: 0px;
+        }
+        .class_6{
+            /*background-image: url('co.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;*/
+            height: 350px;
+            width: 49%;
+            margin: 2px;
+            border-radius: 5px;
+            padding: 0px;
+        }
+        #id_carousel{
+            width: 94%;
+            left: 2.3%;
+            border-radius: 5px ;
+        }
+        /*.ctn_one{
+            position: absolute;
+            margin-top: -70px;
+            color: rgba(221, 221, 221, 0.911);
+            margin-left: 130px;
+            font-family: poppins;
+            font-size: 30px;
+        }*/
+        .con_one{
+            position: absolute;
+            width: 100%;
+            height: 130px;
+            margin-top: -360px;
+            border-radius: 5px;
+            color: rgb(233, 233, 233);
+            text-align:left;
+            margin-left: 30px;
+            font-weight: bolder;
+        }
+
+    </style>
+{% endblock %}
+</head>
+{% block content %}
+<body>
+
+    <div id="id_carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#id_carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#id_carousel" data-slide-to="1"></li>
+            <li data-target="#id_carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href=""><img src="{% static 'images/aw1.jpg' %}" style="height:450px;width:100%;"></a>
+                <div class="carousel-caption">
+                    <h3>Premium wrist watch collection<small style="color:orangered;font-size:15px;"><i>visit now</i></small></h3>
+                </div>
+            </div>
+            <div class="item">
+                <a href=""><img src="{% static 'images/cy.jpg' %}"  style="height:450px;width:100%;"></a>
+                <div class="carousel-caption">
+                    <h3>Nike On-Go collection <small style="font-size:15px;color:orangered;">limited edition</small></h3>
+                </div>
+            </div>
+            <div class="item">
+                <a href=""><img src="{% static 'images/it1.jpg' %}"  style="height:450px;width:100%;"></a>
+                <div class="carousel-caption">
+                    <h3>X-plore the world of mobile! <small style="font-size:15px;color:orangered;">the unbeatale offers</small></h3>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#id_carousel" hr data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#id_carousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <!--<div class="container" style="position:relative;">
+        <div class="jumbotron" id="jum_one" style="padding-top:15px;padding-bottom:15px;text-align:center;">
+        <h3 id="jum_ten">Get your perfect deals here!</h3>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col-xs-12" style="text-align:center;margin-top: 150px;">
+
+
+
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <p style="text-align:center;font-family:alex brush;font-size: 24px;color: rgb(12, 0, 12);">You can get weighed down by baggage, bulk,
+                    stuff.
+                    It can slow you down and narrow your view. But it doesn't need to be
+                    that way. Cricket products are designed to make your life easier, smarter and more seamless.</p>
+            </div>
+            <div class="col-xs-3"></div>
+
+
+
+            <div class=" col-xs-12">
+                <div class="col-xs-6 class_1">
+                    <a href="{% url 'technology_category' %}"><img src="{% static 'images/techonlogy.jpg' %}" width="100%" height="350px" class="img-rounded" style="filter:brightness(40%);"></a>
+                    <div class="con_one"><h3 class="ctn_one" style="margin-top:60px;">Techonolgy</h3></div>
+                </div>
+                <div class="col-xs-6 class_2">
+                    <a href="{% url 'vehicle_category' %}"><img src="{% static 'images/vehicle.jpg' %}" width="100%" height="350px" class="img-rounded" style="filter:brightness(40%);"></a>
+                    <div class="con_one">
+                        <h3 class="ctn_one" style="margin-top:60px;">Vehicle</h3>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-xs-12">
+                <div class="col-xs-6 class_3">
+                    <a href="{% url 'sports_category' %}"><img src="{% static 'images/sports.jpg' %}" width="100%" height="350px" class="img-rounded" style="filter:brightness(40%);"><div class="con_one"></a>
+                        <h3 class="ctn_one" style="margin-top:60px;">Sports</h3>
+                    </div>
+                </div>
+                <div class="col-xs-6 class_4">
+                    <a href="{% url 'audio_category' %}"><img src="{% static 'images/audio.jpg' %}" width="100%" height="350px" class="img-rounded" style="filter:brightness(60%);"></a>
+                    <div class="con_one">
+                        <h3 class="ctn_one" style="margin-top:60px;">Audio</h3>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-xs-12">
+                <div class="col-xs-6 class_5">
+                    <a href="{% url 'furniture_category' %}"><img src="{% static 'images/furniture.jpg' %}" width="100%" height="350px" class="img-rounded" style="filter:brightness(40%);"></a>
+                    <div class="con_one">
+                        <h3 class="ctn_one" style="margin-top:60px;">Furniture</h3>
+                    </div>
+                </div>
+                <div class="col-xs-6 class_6">
+                    <a href="{% url 'clothing_category' %}"><img src="{% static 'images/ho.jpg' %}" width="100%" height="350px" class="img-rounded" style="filter:brightness(50%);"></a>
+                    <div class="con_one">
+                        <h3 class="ctn_one" style="margin-top:60px;">Clothing</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer style="width:100%;background: linear-gradient(to left, rgba(0, 9, 12, 0.98), rgba(0, 3, 10, 0.98));margin-top: 15px;margin:0px 0px 0px 0px;overflow: hidden;">
+            <div class="row">
+                <div class="col-sm-3" style="margin-left:30px;float: left;">
+                    <h5 style="color:white;letter-spacing:1px;">Find A Job</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="letter-spacing:0.5px;color:#43cbff">Job search</li>
+                        </a>
+                    </ol>
+                    <div id="google_translate_element"></div>
+
+                    <script type="text/javascript">
+                      function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                      }
+                    </script>
+
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                </div>
+                <div class="col-sm-3" style="float: left;">
+                    <h5 style="color:white;letter-spacing:1px;">Job Catagories</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Technology</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Sales +
+                                Services</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Marketing</li>
+                        </a>
+                        <a href=" ">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Corporate</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Internships</li>
+                        </a>
+                    </ol>
+                </div>
+                <div class="col-sm-3" style="float: left;right: 0 !important;top: 0 !important;margin-top: 0px !important;">
+                    <h5 style="color:white;font-size: 16px;letter-spacing:1px;">Location</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Asia
+                                Pacific</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Europe,
+                                Middle East, Africa</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Latin
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">North
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Remote</li>
+                        </a>
+
+                    </ol>
+                </div>
+                <div class="col-sm-3" style="height:100%;background:linear-gradient(to right,#43cbff,#9708cc);width: auto;color:white;float: right;">
+                    <h5 style="color:white;letter-spacing: 1px;">Follow us on</h5>
+                    <p style="font-size:12px;letter-spacing:0.5px;">See what's happening around the world</p>
+                    <ol style="list-style-type:none;">
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-facebook-f" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-instagram" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pied-piper-pp" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pinterest-p" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98); "><i
+                                        class="fa fa-youtube" style="font-size:20px;"></i></button></li>
+                        </a>
+                    </ol>
+                </div>
+            </div>
+        </footer>
+
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+            window.onscroll = function () {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("navbar_one").style.top = "0";
+                } else {
+                    document.getElementById("navbar_one").style.top = "-50px";
+                }
+                prevScrollpos = currentScrollPos;
+            }
+    </script>
+</body>
+{% endblock %}
+</html>

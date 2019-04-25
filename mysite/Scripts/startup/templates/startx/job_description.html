@@ -1,0 +1,192 @@
+{% extends 'startx/base_navigation_bar.html' %}
+{% block title %}Job Description{% endblock %}
+
+{% block style %}
+    <style>
+
+
+        #brand_name {
+            padding-left: 5px !important;
+            padding-right: 10px;
+            font-size: 18px;
+        }
+
+        ul {
+            padding-top: 5px;
+        }
+
+
+        button {
+            outline: none !important;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+        i{
+            transition:0.3s;
+        }
+        i:hover{
+            color:white;
+        }
+        hr{
+            border: 0.35px solid rgba(128, 128, 128, 0.2);
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <!--inner content-->
+    <div class="row" style="margin-top:50px;">
+        <div class="container">
+            <div class="col-sm-12">
+                <!--post heading-->
+                <h2 id="main_heading">{{ instance.job_title }}<br>
+                    <small style="font-size:16px;">US-NC-Raleigh</small></h2>
+                    <button class="btn btn-default" style="float:right;width:150px;border:none;border-radius:50px;background:linear-gradient(to right,rgb(255, 0, 43),rgb(240, 30, 2));color: white;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.475);">Apply Now</button>
+                    <div class="badge" style="margin-right:5px;border-radius:3px;letter-spacing:0.5px;color:white;padding-top:6px;padding-bottom:5px;font-weight: lighter;font-size: 12px;background:linear-gradient(to right,#f54ea2,#ff7676);"><b style="padding-right:6px;">Job Id</b> <span>{{ instance.id }}</span></div>
+                    <div class="badge" style="border-radius:3px;letter-spacing: 0.5px;color:white;padding-top:6px;padding-bottom:5px;font-weight: lighter;font-size: 12px;background:linear-gradient(to right,#17ead9,#6078da);"><b style="padding-right:6px;">Category</b> <span>{{ instance.category }}</span></div>
+                    <hr>
+                    <div class="well"style="margin-top:50px;padding-top:0px;padding-bottom:0px;width:100%;background:white;border:none;padding-top:5px;padding-bottom:5px;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.475);">
+                        <h5 style="letter-spacing:1px;"><b style="border-bottom:2px solid rgba(255, 0, 64, 0.75);">Company Description</b></h5>
+                        <p style="font-size:13px;letter-spacing: 1px;text-align: justify;">{{ instance.user.profile.description }}</p>
+                    </div>
+                    <!--Summary box-->
+                <div class="well" style="margin-top:25px;padding-top:0px;padding-bottom:0px;width:100%;background-color:white;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.475);border: none;padding-top: 5px;padding-bottom:5px;">
+                    <h5  style="letter-spacing:1px;"><b style="border-bottom:2px solid rgba(255, 0, 64, 0.75);">Job summary</b></h5>
+                    <p style="font-size:13px;letter-spacing: 1px;text-align: justify;">{{ instance.job_description }}</p>
+                </div>
+                <!--reponsiblity box-->
+                <div class="well" style="margin-top:25px;padding-top:0px;padding-bottom:0px;width:100%;background-color:white;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.475);border:none;padding-top: 5px;padding-bottom:5px;">
+                    <h5  style="letter-spacing:1px;"><b style="border-bottom:2px solid rgba(255, 0, 64, 0.75);">Primary job responsibilities</b></h5>
+                    <ul style="font-size:13px;letter-spacing: 1px;text-align: justify;">
+                      {{ instance.requirements }}
+                      </ul>
+                </div>
+                <div class="well" style="margin-top:25px;padding-top:0px;padding-bottom:0px;width:100%;background-color:white;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.475);border:none;padding-top: 5px;padding-bottom:5px;">
+                    <h5  style="letter-spacing:1px;"><b style="border-bottom:2px solid rgba(255, 0, 64, 0.75);">Required skills</b></h5>
+                    <ul style="font-size:13px;letter-spacing: 1px;text-align: justify;">
+                      {{ instance.required_skills }}
+                    </ul>
+                </div>
+                </div>
+        </div>
+        <!--footer-->
+        <footer style="width:100%;background: linear-gradient(to left, rgba(0, 9, 12, 0.98), rgba(0, 3, 10, 0.98));margin-top: 15px;margin:0px 0px 0px 0px;overflow: hidden;">
+            <div class="row">
+                <div class="col-sm-3" style="margin-left:30px;float: left;">
+                    <h5 style="color:white;letter-spacing:1px;">Find A Job</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="letter-spacing:0.5px;color:#43cbff">Job search</li>
+                        </a>
+                    </ol>
+                    <div id="google_translate_element"></div>
+
+                    <script type="text/javascript">
+                      function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                      }
+                    </script>
+
+                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                </div>
+                <div class="col-sm-3" style="float: left;">
+                    <h5 style="color:white;letter-spacing:1px;">Job Catagories</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Technology</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Sales +
+                                Services</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Marketing</li>
+                        </a>
+                        <a href=" ">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Corporate</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Internships</li>
+                        </a>
+                    </ol>
+                </div>
+                <div class="col-sm-3" style="float: left;right: 0 !important;top: 0 !important;margin-top: 0px !important;">
+                    <h5 style="color:white;font-size: 16px;letter-spacing:1px;">Location</h5>
+                    <ol style="list-style-type:none;">
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Asia
+                                Pacific</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Europe,
+                                Middle East, Africa</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Latin
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">North
+                                America</li>
+                        </a>
+                        <a href="">
+                            <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Remote</li>
+                        </a>
+
+                    </ol>
+                </div>
+                <div class="col-sm-3" style="height:100%;background:linear-gradient(to right,#43cbff,#9708cc);width: auto;color:white;float: right;">
+                    <h5 style="color:white;letter-spacing: 1px;">Follow us on</h5>
+                    <p style="font-size:12px;letter-spacing:0.5px;">See what's happening around the world</p>
+                    <ol style="list-style-type:none;">
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-facebook-f" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-instagram" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pied-piper-pp" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                        class="fa fa-pinterest-p" style="font-size:20px;"></i></button></li>
+                        </a>
+                        <a>
+                            <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98); "><i
+                                        class="fa fa-youtube" style="font-size:20px;"></i></button></li>
+                        </a>
+                    </ol>
+                </div>
+            </div>
+        </footer>
+
+
+        <script type="text/javascript">
+          //Google translate
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+          }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <script>
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function () {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("navbar_one").style.top = "0";
+                } else {
+                    document.getElementById("navbar_one").style.top = "-150px";
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        </script>
+{% endblock %}

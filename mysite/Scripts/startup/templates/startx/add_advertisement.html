@@ -1,0 +1,123 @@
+{% extends 'startx/base_navigation_bar.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Start-X | Add Advertisement{% endblock %}
+
+
+
+
+{% block content %}
+
+{% for group in user.groups.all %}
+  {% if group.name == "Advertiser" %}
+  <div class="col-sm-9" style="padding-top:60px;">
+    <form action="{% url 'add_advertisement' %}" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" class="btn btn-success" value="Add Advertisement"><br><br>
+    </form>
+  </div>
+  {% else %}
+    <h3>Bye</h3>
+
+  {% endif %}
+
+
+{% endfor %}
+<!--footer-->
+<footer style="width:100%;background: linear-gradient(to left, rgba(0, 9, 12, 0.98), rgba(0, 3, 10, 0.98));margin-top: 15px;margin:0px 0px 0px 0px;overflow: hidden;">
+    <div class="row">
+        <div class="col-sm-3" style="margin-left:30px;float: left;">
+            <h5 style="color:white;letter-spacing:1px;">Find A Job</h5>
+            <ol style="list-style-type:none;">
+                <a href="">
+                    <li style="letter-spacing:0.5px;color:#43cbff">Job search</li>
+                </a>
+            </ol>
+            <div id="google_translate_element"></div>
+
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+              }
+            </script>
+
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        </div>
+        <div class="col-sm-3" style="float: left;">
+            <h5 style="color:white;letter-spacing:1px;">Job Catagories</h5>
+            <ol style="list-style-type:none;">
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Technology</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Sales +
+                        Services</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Marketing</li>
+                </a>
+                <a href=" ">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Corporate</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Internships</li>
+                </a>
+            </ol>
+        </div>
+        <div class="col-sm-3" style="float: left;right: 0 !important;top: 0 !important;margin-top: 0px !important;">
+            <h5 style="color:white;font-size: 16px;letter-spacing:1px;">Location</h5>
+            <ol style="list-style-type:none;">
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Asia
+                        Pacific</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Europe,
+                        Middle East, Africa</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Latin
+                        America</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">North
+                        America</li>
+                </a>
+                <a href="">
+                    <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Remote</li>
+                </a>
+
+            </ol>
+        </div>
+        <div class="col-sm-3" style="height:100%;background:linear-gradient(to right,#43cbff,#9708cc);width: auto;color:white;float: right;">
+            <h5 style="color:white;letter-spacing: 1px;">Follow us on</h5>
+            <p style="font-size:12px;letter-spacing:0.5px;">See what's happening around the world</p>
+            <ol style="list-style-type:none;">
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-facebook-f" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-instagram" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-pied-piper-pp" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                class="fa fa-pinterest-p" style="font-size:20px;"></i></button></li>
+                </a>
+                <a>
+                    <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98); "><i
+                                class="fa fa-youtube" style="font-size:20px;"></i></button></li>
+                </a>
+            </ol>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

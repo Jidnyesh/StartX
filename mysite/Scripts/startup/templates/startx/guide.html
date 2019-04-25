@@ -1,0 +1,576 @@
+{% extends 'startx/base_navigation_bar.html' %}
+{% load static %}
+{% block title %}Start-x | Guide{% endblock %}
+{% block head %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block style %}
+    <style>
+        .card-inner{
+            width: auto;
+            height: auto;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+        .card_ani:hover .card-inner{
+            transform: rotateX(180deg);
+        }
+        .card-front,.card-back{
+          backface-visibility: hidden !important;
+          transform: rotate(0deg);
+        }
+        .card-back{
+            transform: rotateX(180deg);
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="row" style="margin-top:70px;">
+        <!--<div class="col-xs-2"></div>-->
+        <div class="col-xs-10">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Marketing Strategies<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">built
+                                            your strategies</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Marketing Principles<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">built
+                                            your strength</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Public Demands<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">make
+                                            public here you</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Current Trends<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">inherit
+                                            the current trends</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Target Audience<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">X-plore
+                                            the audience near you
+                                        </small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Marketing Research<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">built
+                                            marketing targets</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Policies & Uses<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">built
+                                            marketing targets</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Idea Refining<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">built
+                                            marketing ideas</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Marketing Research<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">built
+                                            marketing targets</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Bussiness Plans<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">inherit
+                                            the current trends</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you
+                                        want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>Western Trends<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">inherit
+                                            the current trends</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you
+                                        want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4">
+                        <div class="well card_ani" style="height:155px;color:white;perspective:1000px;padding-top: 5px;padding-bottom: 2px;background: linear-gradient(to right,#43cbff,#9708cc);border: none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.26);">
+                            <div class="card-inner">
+                                <div class="card-front" style="text-align:left;">
+                                    <h4>X-plore Techology<small style="font-size:12px;margin-left: 5px;font-style: italic;color: #a4e5ff;">inherit
+                                            the current trends</small></h4>
+
+                                    <div class="badge" style="float:left;display: block;letter-spacing: 0.5px;font-size: 10px;font-weight: lighter;background: linear-gradient(to right,#ff7c6e,#f5317f);"><i
+                                            class="glyphicon glyphicon-fire" style="margin-right: 5px;backface-visibility: hidden;"></i>Trending
+                                        Topic</div>
+                                </div>
+                                <div class="card-back" style="width:100%;">
+                                    <span style="font-size:15px;margin-top: 15px;margin-left: -102px !important;font-weight: bold;">Description</span>
+                                    <p style="min-width:100%;padding-right:0px;text-align: justify;font-size: 12px;display: block;">Collapsibles
+                                        are useful when you want to hide and show large amount of content.Collapsibles are useful when you
+                                        want
+                                        to hide and show large amount of content.
+                                        <a href="" style="float:right;display:block;text-decoration: none !important;">
+                                            <button type="button" class="btn btn-default" style="display:block;font-size: 12px;border: none;background:linear-gradient(to right,#ff7c6e,#f5317f);color: white;">Get
+                                                Info</button>
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="col-xs-2">
+            <div class="well" style="border:none;background:white;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);text-align: left;">
+                <h5>Suggested Posts:</h5>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;background:linear-gradient(to right,#43cbff,#9708cc);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;">Principles
+                                of marketing<br><small style="font-size:11px;font-weight:lighter;display: block;color:#b8ebff;float: left;margin-top: 2px;">Get
+                                    registerd</small></label>
+                            <label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                A.T.Thomas</label>
+                        </div>
+                    </a>
+                </span>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;background:linear-gradient(to right,#43cbff,#9708cc);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;">Principles
+                                of marketing<br><small style="font-size:11px;font-weight:lighter;display: block;color:#b8ebff;float: left;margin-top: 2px;">Get
+                                    registerd</small></label>
+                            <label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                A.T.Thomas</label>
+                        </div>
+                    </a>
+                </span>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;background:linear-gradient(to right,#43cbff,#9708cc);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;">Principles
+                                of marketing<br><small style="font-size:11px;font-weight:lighter;display: block;color:#b8ebff;float: left;margin-top: 2px;">Get
+                                    registerd</small></label>
+                            <label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                A.T.Thomas</label>
+                        </div>
+                    </a>
+                </span>
+            </div>
+            <div class="well" style="border:none;background:white;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.15);text-align: left;">
+                <h5>Advertisers near you:</h5>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;background:linear-gradient(to right,#ff63de,#b122ef);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;color: white;">Kevin Advertisers
+                                <br><small style="font-size:11px;font-weight:lighter;display: block;color:#421738;float: left;margin-top: 2px;">Book Now</small></label>
+                            <!--<label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                A.T.Thomas</label>-->
+                                <a><button type="button" class="btn btn-default" style="border:none;float: right;border-radius: 60px;"><i class="fa fa-plus"></i></button></a>
+                        </div>
+                    </a>
+                </span>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;background:linear-gradient(to right,#ff63de,#b122ef);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;color: white;">Gemini Advertisers
+                                <br><small style="font-size:11px;font-weight:lighter;display: block;color:#421738;float: left;margin-top: 2px;">Book
+                                    Now</small></label>
+                            <!--<label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                                A.T.Thomas</label>-->
+                            <a><button type="button" class="btn btn-default" style="border:none;float: right;border-radius: 60px;"><i
+                                        class="fa fa-plus"></i></button></a>
+                        </div>
+                    </a>
+                </span>
+                <span style="display:block;margin-top: 10px;">
+                    <a href="" style="display: inline-block">
+                        <div class="badge" style="text-align: left;max-width:175px;width: 175px;background:linear-gradient(to right,#ff63de,#b122ef);border:none;box-shadow:0px 0px 15px rgba(0, 0, 0, 0.1);padding-top: 2px;"><img
+                                src="{% static 'images/workplace.jpg' %}" width="30px" height="30px" class="img-circle" style="position:relative;margin-top: 10px;"><label
+                                style="font-weight:lighter;font-size:12px;padding-left: 5px;border-radius: 20px;color: white;">Golden Advertisers
+                                <br><small style="font-size:11px;font-weight:lighter;display: block;color:#421738;float: left;margin-top: 2px;">Book
+                                    Now</small></label>
+                            <!--<label style="float:left;font-weight: lighter;padding-top: 3px;padding-left:37px;font-size: 12px;">-By
+                                                A.T.Thomas</label>-->
+                            <a><button type="button" class="btn btn-default" style="border:none;float: right;border-radius: 60px;"><i
+                                        class="fa fa-plus"></i></button></a>
+                        </div>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <footer style="width:100%;background: linear-gradient(to left, rgba(0, 9, 12, 0.98), rgba(0, 3, 10, 0.98));margin-top: 15px;margin:0px 0px 0px 0px;overflow: hidden;">
+        <div class="row">
+            <div class="col-sm-3" style="margin-left:30px;float: left;">
+                <h5 style="color:white;letter-spacing:1px;">Find A Job</h5>
+                <ol style="list-style-type:none;">
+                    <a href="">
+                        <li style="letter-spacing:0.5px;color:#43cbff">Job search</li>
+                    </a>
+                </ol>
+
+                <div id="google_translate_element"></div>
+
+                <script type="text/javascript">
+                  function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                  }
+                </script>
+
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+            </div>
+            <div class="col-sm-3" style="float: left;">
+                <h5 style="color:white;letter-spacing:1px;">Job Catagories</h5>
+                <ol style="list-style-type:none;">
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Technology</li>
+                    </a>
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Sales +
+                            Services</li>
+                    </a>
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Marketing</li>
+                    </a>
+                    <a href=" ">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Corporate</li>
+                    </a>
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Internships</li>
+                    </a>
+                </ol>
+            </div>
+            <div class="col-sm-3" style="float: left;right: 0 !important;top: 0 !important;margin-top: 0px !important;">
+                <h5 style="color:white;font-size: 16px;letter-spacing:1px;">Location</h5>
+                <ol style="list-style-type:none;">
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Asia
+                            Pacific</li>
+                    </a>
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Europe,
+                            Middle East, Africa</li>
+                    </a>
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Latin
+                            America</li>
+                    </a>
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">North
+                            America</li>
+                    </a>
+                    <a href="">
+                        <li style="padding-top:5px;padding-bottom:5px;letter-spacing:0.5px;color:#43cbff">Remote</li>
+                    </a>
+
+                </ol>
+            </div>
+            <div class="col-sm-3" style="height:100%;background:linear-gradient(to right,#43cbff,#9708cc);width: auto;color:white;float: right;">
+                <h5 style="color:white;letter-spacing: 1px;">Follow us on</h5>
+                <p style="font-size:12px;letter-spacing:0.5px;">See what's happening around the world</p>
+                <ol style="list-style-type:none;">
+                    <a>
+                        <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                    class="fa fa-facebook-f" style="font-size:20px;"></i></button></li>
+                    </a>
+                    <a>
+                        <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                    class="fa fa-instagram" style="font-size:20px;"></i></button></li>
+                    </a>
+                    <a>
+                        <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                    class="fa fa-pied-piper-pp" style="font-size:20px;"></i></button></li>
+                    </a>
+                    <a>
+                        <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98);"><i
+                                    class="fa fa-pinterest-p" style="font-size:20px;"></i></button></li>
+                    </a>
+                    <a>
+                        <li><button class="btn btn-default" style="border:none;background:transparent;color:rgba(12, 0, 7, 0.98); "><i
+                                    class="fa fa-youtube" style="font-size:20px;"></i></button></li>
+                    </a>
+                </ol>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

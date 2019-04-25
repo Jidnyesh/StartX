@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Bungee Inline' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% block head %}
+    {% endblock %}
+    <style>
+        html,
+        body {
+            font-family: poppins;
+            max-width: 100%;
+            background: white;
+            overflow-x: hidden;
+            /*background-image: url('cover.jpg');
+            background-position: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;*/
+        }
+
+        input:focus {
+            outline: none !important;
+        }
+
+        #navbar_one {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: fixed;
+            background: linear-gradient(to left, #000000, #434343);
+            /*background: rgba(255, 255, 255, 0.350);*/
+            box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.6);
+            transition: top 0.3s;
+            font-family: poppins;
+            z-index: 100;
+            top: 0;
+        }
+
+
+        /*ye har ek tab ke liye*/
+        #tab_ele {
+            padding-left: 25px;
+            /*background: rgb(255, 55, 20);*/
+            /*background:linear-gradient(to right,rgb(255, 187, 0) 3%,rgb(255, 94, 0)75%,rgba(247, 19, 57, 0.85) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;*/
+            color: white;
+            font-weight: 700;
+        }
+
+        #brand_name {
+            padding-left: 5px !important;
+            padding-right: 10px;
+            font-size: 17px;
+        }
+
+        ul {
+            padding-top: 5px;
+        }
+
+        /*.navbar_ele{
+            text-decoration: none;
+            background: linear-gradient(to left,#ffbb00,#ff5e00,rgb(247, 19, 57));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }*/
+
+        button {
+            outline: none !important;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        /*a{
+            background:linear-gradient(to left,#ffbb00,#ff5e00,rgb(247, 19, 57));
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }*/
+        #link_tab {
+            padding: 15px;
+        }
+
+        hr {
+            border: 0.5px solid rgba(128, 128, 128, 0.2);
+        }
+
+        /*har card ko maine well name ke container me rkha hu(wo bootstrap me container ke liye well use karte hai iskiye*/
+        .well {
+            background-color: white;
+            background-position: fixed;
+            border: none;
+        }
+
+        .span_left_drp_1 {
+            background: linear-gradient(to left, #ffbb00, #ff5e00, rgb(247, 19, 57));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .caret_left {
+            color: #ff5e00 !important;
+        }
+
+        input[type="search"] {
+            background: #ff5e0000;
+            border: none;
+            border-bottom: 1px solid rgba(255, 68, 0, 0.555);
+            outline: none !important;
+        }
+
+        #search_left {
+            background: rgba(255, 68, 0, 0);
+            /*border: 1px solid rgba(255, 94, 0, 0.5);*/
+            color: #ff5e00;
+            /*border-radius: 30px;*/
+            transition: 0.5s;
+            border: none;
+        }
+
+        #serach_left:hover {
+            background: #ff5e0000 !important;
+        }
+
+        #so {
+            color: rgb(255, 94, 0) !important;
+        }
+
+        button {
+            outline: none !important;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .panel {
+            border: none;
+        }
+
+        i {
+            transition: 0.3s;
+        }
+
+        i:hover {
+            color: white;
+        }
+
+        #tag_ln {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+    </style>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <!--navigation bar-->
+    <div id="navbar_one">
+        <ul>
+            <a href="" id="brand" style="font-size:20px;color: rgb(0,255,255);">Start-X</a>
+            <a id="tab_ele" href="{% url 'home' %}">Home</a>
+            <a id="tab_ele" href="{% url 'product_categories' %}">Categories</a>
+            <a id="tab_ele" href="{% url 'jobs' %}">Jobs</a>
+            <a id="tab_ele" href="{% url 'advertisement' %}">Advertisement</a>
+            <a id="tab_ele" href="{% url 'guide' %}">Guide</a>
+            <a id="tab_ele" href="">Forum</a>
+
+
+
+            <a href="{% url 'logoutv' %}" style="float:right;font-size:20px;"><button class="btn btn-default" style="background:transparent;border: 1px solid rgb(255, 0, 43);border-radius: 30px;margin-right:20px;color: white !important"
+                    id="so"><i class="fa fa-sign-out" style="padding-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px;"></i></button></a>
+            <div style="background:rgb(255, 0, 43);margin-right:15px; border-radius: 0px;border: none;text-align:center;float: right;width:75px;height: 100%;right: 0px;padding-top: 3px !important;margin-top: 0px !important;">
+                {% if user.profile.image %}
+                <a href="{% url 'profile' %}"><img src="{{ user.profile.image.url }}" width="20px" height="20px" class="img-circle" style="box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.6);margin-right:5px;border-bottom: 0px;"><span class="user_name" style="color:rgb(255, 255, 255);display: block;">Profile</span></a>
+                {% else %}
+                <a href="{% url 'profile' %}"><img src="{% static 'images/a1.jpg' %}" width="20px" height="20px" class="img-circle" style="box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.6);margin-right:5px;border-bottom: 0px;"><span class="user_name" style="color:rgb(255, 255, 255);display: block;">Profile</span></a>
+                {% endif %}
+            </div>
+        </ul>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar_one").style.top = "0";
+            } else {
+                document.getElementById("navbar_one").style.top = "-150px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+    </body>
+
+    </html>
